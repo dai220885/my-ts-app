@@ -4,7 +4,7 @@ import Accordion from "./components/Accordion/Accordion";
 import {Raiting} from "./components/Raiting/Raiting";
 import OnOff from './components/OnOff/OnOff';
 import UnControlledAccordion from './components/UnControlledAccordion/UnControlledAccordion';
-import {UnControlledRaiting} from './components/UnControlledRaiting/Raiting';
+import {UnControlledRaiting} from './components/UnControlledRaiting/UnControlledRaiting';
 
 function App() {
     console.log("App rendering")
