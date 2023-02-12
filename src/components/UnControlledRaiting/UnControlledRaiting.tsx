@@ -1,15 +1,8 @@
 import React, {useState} from 'react';
 import star from './star.jpg'
-/*type RaitingPropsType1 = {
-    value: number;
-}*/
-
-// type UnControlledRaitingPropsType2 = {
-//     value: 0 | 1 | 2 | 3 | 4 | 5;
-// }
-
 
 export function UnControlledRaiting() {
+    //локальный стейт для хранения количества звезд (значения рейтинга)
     let [starValue, setstarValue] = useState<number>(0)
 
     console.log('Raiting rendering')
@@ -26,7 +19,6 @@ export function UnControlledRaiting() {
     );
 
 }
-
 
 type UnControlledStarPropsType = {
     selected: boolean;
