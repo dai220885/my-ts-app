@@ -5,7 +5,7 @@ type AccordionPropsType = {
 }
 
 function UnControlledAccordion(props: AccordionPropsType) {
-
+    //локальный стейт для хранения состояния (свернут/развернут - collapsed(true/false))
     let [collapsed, setCollapsed] = useState<boolean>(false)
 
     console.log("UnControlledAccordion rendering")
