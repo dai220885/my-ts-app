@@ -3,6 +3,7 @@ import './App.css';
 import Accordion from "./components/Accordion/Accordion";
 import {Raiting} from "./components/Raiting/Raiting";
 import OnOff from './components/OnOff/OnOff';
+import UnControlledAccordion from './components/UnControlledAccordion/UnControlledAccordion';
 
 function App() {
     console.log("App rendering")
@@ -18,6 +19,7 @@ function App() {
             <Accordion titleValue={"Menu"} collapsed={false}/>
             <Accordion titleValue={"Users"} collapsed={true}/>
             <Accordion titleValue={"Settings"} collapsed={false}/>
+            <UnControlledAccordion titleValue={'UnControlledAccordion'}/>
             <Raiting value={0}/>
             <Raiting value={1}/>
             <Raiting value={2}/>
