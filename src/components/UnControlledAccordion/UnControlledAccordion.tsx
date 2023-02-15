@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, MouseEvent} from 'react';
 
 type AccordionPropsType = {
     titleValue: string;
@@ -29,10 +29,13 @@ type UnControlledAccordionTitlePropsType = {
 
 function UnControlledAccordionTitle(props: UnControlledAccordionTitlePropsType) {
     console.log("UnControlledAccordionTitle rendering")
-    return (
-        <h3 onClick={()=>{props.collapsed
+    const titleOnClickHandler = (event: MouseEvent<HTMLHeadingElement>) =>{
+        props.collapsed
             ? props.setCollapsed(false)
-            : props.setCollapsed(true)}}>
+            : props.setCollapsed(true)
+    }
+    return (
+        <h3 onClick={titleOnClickHandler}>
             {props.title}
         </h3>
     );
