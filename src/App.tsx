@@ -20,15 +20,17 @@ function App() {
             <Accordion titleValue={"Menu"} collapsed={false}/>
             <Accordion titleValue={"Users"} collapsed={true}/>
             <Accordion titleValue={"Settings"} collapsed={false}/>
-            <UnControlledAccordion titleValue={'UnControlledAccordion'}/>
+            <UnControlledAccordion titleValue={'UnControlledAccordion:'}/>
+            <div><h3>UnconrolledRaiting:</h3></div>
+            <UnControlledRaiting/>
             <Raiting value={0}/>
             <Raiting value={1}/>
             <Raiting value={2}/>
             <Raiting value={3}/>
             <Raiting value={4}/>
             <Raiting value={5}/>
-            <div>UnconrolledRaiting:</div>
-            <UnControlledRaiting/>
+
+
 
 
 
