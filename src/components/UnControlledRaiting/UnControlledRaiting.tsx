@@ -1,9 +1,10 @@
 import React, {useState, MouseEvent} from 'react';
 import star from './star.jpg'
+import {RatingValueType} from '../Raiting/Raiting';
 
 export function UnControlledRaiting() {
     //локальный стейт для хранения количества звезд (значения рейтинга)
-    let [starValue, setStarValue] = useState<number>(0)
+    let [starValue, setStarValue] = useState<RatingValueType>(0)
 
     console.log('Raiting rendering')
     return (
@@ -41,8 +42,8 @@ export function UnControlledRaiting() {
 
 type UnControlledStarPropsType = {
     selected: boolean;
-    setStarValue:(starValue: number)=>void
-    starValue: number
+    setStarValue:(starValue: RatingValueType)=>void
+    starValue: RatingValueType
 }
 
 function UnControlledStar(props: UnControlledStarPropsType) {
@@ -56,9 +57,12 @@ function UnControlledStar(props: UnControlledStarPropsType) {
             {/*{!props.selected&&<span>star </span>}*/}
 
             {/*то же самое, но тернарным выражением:*/}
-            {props.selected
-                ?<span onClick={starOnClickHandler}> <b>star </b></span>
-                :<span onClick={starOnClickHandler}>star </span>}
+            {/*{props.selected*/}
+            {/*    ?<span onClick={starOnClickHandler}> <b>star </b></span>*/}
+            {/*    :<span onClick={starOnClickHandler}>star </span>}*/}
+
+            {/*опять то же самое, но тернарным выражением внутри спана:*/}
+            {<span onClick={starOnClickHandler}>{props.selected? <b>star </b>: "star "}</span>}
         </>
     );
 }

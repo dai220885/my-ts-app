@@ -7,11 +7,11 @@ type AccordionPropsType = {
 function UnControlledAccordion(props: AccordionPropsType) {
     //локальный стейт для хранения состояния (свернут/развернут - collapsed(true/false))
     let [collapsed, setCollapsed] = useState<boolean>(false)
-
+    let onClickHandler = ()=>setCollapsed(!collapsed)
     console.log("UnControlledAccordion rendering")
         return (
             <div>
-                <UnControlledAccordionTitle title={props.titleValue} collapsed={collapsed} setCollapsed={setCollapsed}/>
+                <UnControlledAccordionTitle title={props.titleValue} onClick ={onClickHandler}/>
                 {!collapsed&&<UnControlledAccordionBody/>} {/*если collapsed===true, то AccordionBody не отобразится*/}
             </div>
 
@@ -23,19 +23,13 @@ function UnControlledAccordion(props: AccordionPropsType) {
 
 type UnControlledAccordionTitlePropsType = {
     title: string;
-    collapsed: boolean;
-    setCollapsed: (collapsed:boolean) => void
+    onClick: ()=>void
 }
 
 function UnControlledAccordionTitle(props: UnControlledAccordionTitlePropsType) {
     console.log("UnControlledAccordionTitle rendering")
-    const titleOnClickHandler = (event: MouseEvent<HTMLHeadingElement>) =>{
-        props.collapsed
-            ? props.setCollapsed(false)
-            : props.setCollapsed(true)
-    }
     return (
-        <h3 onClick={titleOnClickHandler}>
+        <h3 onClick={props.onClick}>
             {props.title}
         </h3>
     );
