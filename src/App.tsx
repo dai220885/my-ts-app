@@ -1,34 +1,42 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import Accordion from "./components/Accordion/Accordion";
-import {Raiting} from "./components/Raiting/Raiting";
+import {Raiting, RatingValueType} from './components/Raiting/Raiting';
 import OnOff from './components/OnOff/OnOff';
 import UnControlledAccordion from './components/UnControlledAccordion/UnControlledAccordion';
 import {UnControlledRaiting} from './components/UnControlledRaiting/UnControlledRaiting';
+import UnControlledOnOff from './components/UnControlledOnOff/UnControlledOnOff';
 
 function App() {
     console.log("App rendering")
     //делает что-то полезное
     //обязана вернуть JSX
+    let [ratingValue, setRatingValue] = useState <RatingValueType>(0) //стейт для хранения состояния рейтинга
+    let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false) //стейт для хранения состояния аккордиона (свернут/развернут)
+    let [usersCollapsed, setUsersCollapsed] = useState<boolean>(false)
+    let [settingsCollapsed, setSettingsCollapsed] = useState<boolean>(false)
+    let [switchOn, setOn] = useState<boolean>(false)
+
+
     return (
         <div>
 
             <PageTitle title={"Page title 1"}/>
-            <Raiting value={2}/>
-            <OnOff/>
-            <OnOff/>
-            <Accordion titleValue={"Menu"} collapsed={false}/>
-            <Accordion titleValue={"Users"} collapsed={true}/>
-            <Accordion titleValue={"Settings"} collapsed={false}/>
+            <OnOff on={switchOn} onChange ={setOn}/>
+            <OnOff on={switchOn} onChange ={setOn}/>
+            <div><h3>UncontrolledOnOff:</h3></div>
+            <UnControlledOnOff/>
+            <UnControlledOnOff/>
+            <div><h3>ControlledAccordions:</h3></div>
+            <Accordion titleValue={"Menu"} collapsed={accordionCollapsed} onClick = {setAccordionCollapsed}/>
+            <Accordion titleValue={"Users"} collapsed={usersCollapsed} onClick = {setUsersCollapsed}/>
+            <Accordion titleValue={"Settings"} collapsed={settingsCollapsed} onClick = {setSettingsCollapsed}/>
             <UnControlledAccordion titleValue={'UnControlledAccordion:'}/>
-            <div><h3>UnconrolledRaiting:</h3></div>
+            <div><h3>UncontrolledRating:</h3></div>
             <UnControlledRaiting/>
-            <Raiting value={0}/>
-            <Raiting value={1}/>
-            <Raiting value={2}/>
-            <Raiting value={3}/>
-            <Raiting value={4}/>
-            <Raiting value={5}/>
+            <div><h3>ControlledRating:</h3></div>
+            <Raiting value={ratingValue} onClick = {setRatingValue}/>
+
 
 
 
