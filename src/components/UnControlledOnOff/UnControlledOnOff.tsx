@@ -43,6 +43,7 @@ const indicatorStyle = {
             <div style={onStyle} onClick={onClickOnHandler}> <b>on </b></div>
             <div style={offStyle} onClick={onClickOffHandler}>off</div>
             <div style={indicatorStyle}></div>
+            <div>{on? 'on': 'off'}</div>
         </div>
     );
 };
