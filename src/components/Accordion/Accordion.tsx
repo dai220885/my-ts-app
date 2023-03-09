@@ -1,10 +1,20 @@
 import React from "react";
 
+export type AccordionItemType = {
+    id: string
+    name: string
+    age: number
+}
+
+
 type AccordionPropsType = {
     titleValue: string;
     collapsed: boolean;
     onClick: (collapsed: boolean)=>void
+    items: AccordionItemType[]
+    callBack: (newTitle: string)=> void
 }
+
 
 function Accordion(props: AccordionPropsType) {
     console.log("Accordion rendering")
@@ -14,7 +24,13 @@ function Accordion(props: AccordionPropsType) {
                     title={props.titleValue}
                     collapsed={props.collapsed}
                     onClick={props.onClick}/>
-                {!props.collapsed&&<AccordionBody/>} {/*если collapsed===true, то AccordionBody не отобразится*/}
+                {!props.collapsed
+                    &&<AccordionBody
+                        items={props.items}
+                        collapsed={props.collapsed}
+                        onClick={props.onClick}
+                        callBack={props.callBack}
+                    />} {/*если collapsed===true, то AccordionBody не отобразится*/}
             </div>
         );
 }
@@ -53,14 +69,30 @@ function AccordionTitle(props: AccordionTitlePropsType) {
     );
 }
 
-function AccordionBody() {
+
+type AccordionBodyPropsType ={
+    items: AccordionItemType[]
+    collapsed: boolean
+    onClick: (collapsed: boolean)=>void
+    callBack: (newTitle: string)=> void
+}
+function AccordionBody(props: AccordionBodyPropsType) {
+    let accordionBodyOnClickHandler = (newTitle:string)=>{
+        props.onClick(!props.collapsed)
+        props.callBack(newTitle)
+    }
     console.log("AccordionBody rendering")
     return (
         <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
+            {props.items.map(el=><li key={el.id} onClick={()=>accordionBodyOnClickHandler(el.name)}>{el.name}</li>)}
         </ul>
+
+
+        // <ul>
+        //     <li>1</li>
+        //     <li>2</li>
+        //     <li>3</li>
+        // </ul>
     );
 }
 
