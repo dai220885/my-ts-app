@@ -9,6 +9,7 @@ import UnControlledOnOff from './components/UnControlledOnOff/UnControlledOnOff'
 import {Select} from './components/Select/Select';
 import {Checkbox} from './components/Checkbox/Checkbox';
 import {v1} from 'uuid';
+import {CustomSelect} from './components/CustomSelect/CustomSelect';
 
 function App() {
     console.log("App rendering")
@@ -28,28 +29,35 @@ function App() {
         {id: v1(), name: 'Andrey', age: 28},
         {id: v1(), name: 'Nikita', age: 33},
     ]
+    let [selectValue, setSelectValue] = useState()
     return (
         <div>
 
             <PageTitle title={"Page title 1"}/>
-            <OnOff on={switchOn} onChange ={setOn}/>
-            <OnOff on={switchOn} onChange ={setOn}/>
-            <div><h3>UncontrolledOnOff:</h3></div>
-            <UnControlledOnOff/>
-            <UnControlledOnOff/>
-            <div><h3>ControlledAccordions:</h3></div>
-            {/*<Accordion titleValue={"Menu"} collapsed={accordionCollapsed} onClick = {setAccordionCollapsed}/>*/}
-            <Accordion titleValue={title} collapsed={usersCollapsed} onClick = {setUsersCollapsed} items={users} callBack ={setTitle}/>
-            {/*<Accordion titleValue={"Settings"} collapsed={settingsCollapsed} onClick = {setSettingsCollapsed}/>*/}
-            <UnControlledAccordion titleValue={'UnControlledAccordion:'}/>
-            <div><h3>UncontrolledRating:</h3></div>
-            <UnControlledRaiting/>
-            <div><h3>ControlledRating:</h3></div>
-            <Raiting value={ratingValue} onClick = {setRatingValue}/>
-            <div><h3>ControlledSelect:</h3></div>
-            <Select parentValue={ParentValue} callBack={setParentValue}/>
-            <div><h3>ControlledChecbox:</h3></div>
-            <Checkbox isChecked={isChecked} callBack={setIsChecked}/>
+            {/*<OnOff on={switchOn} onChange ={setOn}/>*/}
+            {/*<OnOff on={switchOn} onChange ={setOn}/>*/}
+            {/*<div><h3>UncontrolledOnOff:</h3></div>*/}
+            {/*<UnControlledOnOff/>*/}
+            {/*<UnControlledOnOff/>*/}
+            {/*<div><h3>ControlledAccordions:</h3></div>*/}
+            {/*/!*<Accordion titleValue={"Menu"} collapsed={accordionCollapsed} onClick = {setAccordionCollapsed}/>*!/*/}
+            {/*<Accordion titleValue={title} collapsed={usersCollapsed} onClick = {setUsersCollapsed} items={users} callBack ={setTitle}/>*/}
+            {/*/!*<Accordion titleValue={"Settings"} collapsed={settingsCollapsed} onClick = {setSettingsCollapsed}/>*!/*/}
+            {/*<UnControlledAccordion titleValue={'UnControlledAccordion:'}/>*/}
+            {/*<div><h3>UncontrolledRating:</h3></div>*/}
+            {/*<UnControlledRaiting/>*/}
+            {/*<div><h3>ControlledRating:</h3></div>*/}
+            {/*<Raiting value={ratingValue} onClick = {setRatingValue}/>*/}
+            {/*<div><h3>ControlledSelect:</h3></div>*/}
+            {/*<Select parentValue={ParentValue} callBack={setParentValue}/>*/}
+            {/*<div><h3>ControlledChecbox:</h3></div>*/}
+            {/*<Checkbox isChecked={isChecked} callBack={setIsChecked}/>*/}
+            <div><h3>CustomSelect:</h3></div>
+            <CustomSelect value={selectValue} onChange={setSelectValue} items={[
+                { value: '1', title: 'Minsk'},
+                { value: '2', title: 'Kiev'},
+                { value: '3', title: 'Moscow'},
+            ]} />
 
 
 

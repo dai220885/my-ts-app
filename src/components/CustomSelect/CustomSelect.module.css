@@ -1,0 +1,25 @@
+.select .main {
+    border: 1px solid black;
+    display: inline-block;
+    min-height: 20px;
+    min-width: 40px;
+}
+
+.item.selected {
+    background-color: #0074D9;
+    color: #E8E8E8;
+}
+
+.items {
+    /*display: none;*/
+    display: block;
+    position: absolute;
+    padding: 5px;
+    border: 1px solid black;
+}
+
+/*если одновременно класс select и active, то у класса items значение свойства display поменяется с none на block:*/
+/*но в коде сделали с помощью отрисовки/не отрисовки, а не скрытия с помощью css*/
+.select.active .items {
+    display: block;
+}
