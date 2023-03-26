@@ -10,6 +10,7 @@ import {Select} from './components/Select/Select';
 import {Checkbox} from './components/Checkbox/Checkbox';
 import {v1} from 'uuid';
 import {CustomSelect} from './components/CustomSelect/CustomSelect';
+//добавили тестовый комментарий
 
 function App() {
     console.log("App rendering")
