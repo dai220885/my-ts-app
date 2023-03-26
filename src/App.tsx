@@ -43,7 +43,7 @@ function App() {
             {/*/!*<Accordion titleValue={"Menu"} collapsed={accordionCollapsed} onClick = {setAccordionCollapsed}/>*!/*/}
             {/*<Accordion titleValue={title} collapsed={usersCollapsed} onClick = {setUsersCollapsed} items={users} callBack ={setTitle}/>*/}
             {/*/!*<Accordion titleValue={"Settings"} collapsed={settingsCollapsed} onClick = {setSettingsCollapsed}/>*!/*/}
-            {/*<UnControlledAccordion titleValue={'UnControlledAccordion:'}/>*/}
+            <UnControlledAccordion titleValue={'UnControlledAccordion:'}/>
             {/*<div><h3>UncontrolledRating:</h3></div>*/}
             {/*<UnControlledRaiting/>*/}
             {/*<div><h3>ControlledRating:</h3></div>*/}
