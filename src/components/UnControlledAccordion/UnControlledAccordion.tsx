@@ -1,4 +1,5 @@
-import React, {useState, MouseEvent} from 'react';
+import React, {useState, MouseEvent, useReducer} from 'react';
+import UnControlledAccordionReducer, {toggleCollapsedAC} from './UnControlledAccordion-reducer';
 
 type AccordionPropsType = {
     titleValue: string;
@@ -6,13 +7,22 @@ type AccordionPropsType = {
 
 function UnControlledAccordion(props: AccordionPropsType) {
     //локальный стейт для хранения состояния (свернут/развернут - collapsed(true/false))
-    let [collapsed, setCollapsed] = useState<boolean>(false)
-    let onClickHandler = ()=>setCollapsed(!collapsed)
+    //let [collapsed, setCollapsed] = useState<boolean>(false)
+    let [collapsed, dispatchCollapsed] = useReducer (UnControlledAccordionReducer, {collapsed: false})
+
+
+   // let onClickHandler = ()=>setCollapsed(!collapsed) //когда использовали useState
+    let onClickHandler = ()=>dispatchCollapsed(toggleCollapsedAC()) //при использовании useReducer
+
     console.log("UnControlledAccordion rendering")
         return (
             <div>
                 <UnControlledAccordionTitle title={props.titleValue} onClick ={onClickHandler}/>
-                {!collapsed&&<UnControlledAccordionBody/>} {/*если collapsed===true, то AccordionBody не отобразится*/}
+                {/*когда использовали useState:*/}
+                {/*{!collapsed&&<UnControlledAccordionBody/>} /!*если collapsed===true, то AccordionBody не отобразится*!/*/}
+
+                {/*когда используем useReducer:*/}
+                {!collapsed.collapsed&&<UnControlledAccordionBody/>} {/*если collapsed===true, то AccordionBody не отобразится*/}
             </div>
 
         );
