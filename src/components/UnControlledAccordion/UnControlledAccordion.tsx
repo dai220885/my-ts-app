@@ -14,7 +14,7 @@ function UnControlledAccordion(props: AccordionPropsType) {
    // let onClickHandler = ()=>setCollapsed(!collapsed) //когда использовали useState
     let onClickHandler = ()=>dispatchCollapsed(toggleCollapsedAC()) //при использовании useReducer
 
-    console.log("UnControlledAccordion rendering")
+    //console.log("UnControlledAccordion rendering")
         return (
             <div>
                 <UnControlledAccordionTitle title={props.titleValue} onClick ={onClickHandler}/>
@@ -37,7 +37,7 @@ type UnControlledAccordionTitlePropsType = {
 }
 
 function UnControlledAccordionTitle(props: UnControlledAccordionTitlePropsType) {
-    console.log("UnControlledAccordionTitle rendering")
+    //console.log("UnControlledAccordionTitle rendering")
     return (
         <h3 onClick={props.onClick}>
             {props.title}
@@ -46,7 +46,7 @@ function UnControlledAccordionTitle(props: UnControlledAccordionTitlePropsType) 
 }
 
 function UnControlledAccordionBody() {
-    console.log("UnControlledAccordionBody rendering")
+    //console.log("UnControlledAccordionBody rendering")
     return (
         <ul>
             <li>1</li>

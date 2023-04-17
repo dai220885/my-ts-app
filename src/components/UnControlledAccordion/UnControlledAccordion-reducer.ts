@@ -15,8 +15,6 @@ const UnControlledAccordionReducer = (state: AccStateType, action: ToggleCollaps
 };
 
 
-
-
 export type ToggleCollapsedActionType = ReturnType<typeof toggleCollapsedAC>
 export const toggleCollapsedAC = () => ({type: TOGGLE_COLLAPSED} as const)
 
